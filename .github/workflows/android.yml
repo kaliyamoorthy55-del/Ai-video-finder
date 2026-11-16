@@ -25,10 +25,25 @@ jobs:
         with:
           gradle-version: "8.9"
 
+      
       - name: Extract Android project
         run: |
-          mkdir project
-          unzip -o AI_Video_Finder_GitHub_Ready.zip -d project
+          mkdir -p project
+
+          echo "Searching for ZIP files..."
+          find . -maxdepth 1 -type f -iname "*.zip" -print
+
+          ZIP_FILE=$(find . -maxdepth 1 -type f -iname "*.zip" -print -quit)
+
+          if [ -z "$ZIP_FILE" ]; then
+            echo "ERROR: ZIP file not found"
+            ls -lah
+            exit 1
+          fi
+
+          echo "Found: $ZIP_FILE"
+          unzip -t "$ZIP_FILE"
+          unzip -o "$ZIP_FILE" -d project
 
       - name: Configure Android SDK
         run: |
