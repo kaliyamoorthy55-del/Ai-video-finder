@@ -30,6 +30,7 @@ jobs:
           mkdir project
           unzip -o AI_Video_Finder_GitHub_Ready.zip -d project
 
+
       - name: Configure Android SDK
         run: |
           echo "sdk.dir=$ANDROID_HOME" > project/local.properties
