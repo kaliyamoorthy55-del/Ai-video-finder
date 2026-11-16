@@ -5,7 +5,16 @@ plugins {
 }
 
 android {
-    namespace = "com.example.aivideofinder"
+    
+compileOptions {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+kotlinOptions {
+    jvmTarget = "17"
+}
+namespace = "com.example.aivideofinder"
     compileSdk = 35
 
     defaultConfig {
