@@ -28,7 +28,7 @@ jobs:
       - name: Extract Android project
         run: |
           mkdir project
-          unzip -o AI_Video_Finder_GitHub_Ready.zip -d project
+          unzip -o AI_Video_Finder_Android_Source.zip -d project
 
 
       - name: Configure Android SDK
